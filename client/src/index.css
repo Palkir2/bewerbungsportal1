@@ -1,0 +1,343 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Futuristisches Raumschiff-Design basierend auf dem Referenzbild */
+  --background: 222 30% 5%;
+  --foreground: 196 100% 95%;
+  --muted: 222 25% 10%;
+  --muted-foreground: 196 20% 65%;
+  --popover: 222 35% 8%;
+  --popover-foreground: 196 100% 95%;
+  --card: 222 25% 10%;
+  --card-foreground: 196 100% 95%;
+  --border: 196 80% 40%;
+  --input: 222 20% 15%;
+  --primary: 196 100% 50%;
+  --primary-dark: 196 100% 35%;
+  --primary-light: 196 100% 70%;
+  --primary-foreground: 222 10% 5%;
+  --secondary: 222 40% 20%;
+  --secondary-foreground: 196 100% 95%;
+  --accent: 196 90% 60%;
+  --accent-foreground: 222 10% 5%;
+  --destructive: 0 100% 60%;
+  --destructive-foreground: 222 10% 5%;
+  --ring: 196 80% 40%;
+  --radius: 0.125rem;
+}
+
+/* Wir verwenden direkt das dunkle Raumschiff-Theme */
+.dark {
+  --background: 222 30% 5%;
+  --foreground: 196 100% 95%;
+  --muted: 222 25% 10%;
+  --muted-foreground: 196 20% 65%;
+  --popover: 222 35% 8%;
+  --popover-foreground: 196 100% 95%;
+  --card: 222 25% 10%;
+  --card-foreground: 196 100% 95%;
+  --border: 196 80% 40%;
+  --input: 222 20% 15%;
+  --primary: 196 100% 50%;
+  --primary-dark: 196 100% 35%;
+  --primary-light: 196 100% 70%;
+  --primary-foreground: 222 10% 5%;
+  --secondary: 222 40% 20%;
+  --secondary-foreground: 196 100% 95%;
+  --accent: 196 90% 60%;
+  --accent-foreground: 222 10% 5%;
+  --destructive: 0 100% 60%;
+  --destructive-foreground: 222 10% 5%;
+  --ring: 196 80% 40%;
+  --radius: 0.125rem;
+}
+
+.login-container {
+  background-image: 
+    linear-gradient(135deg, rgba(5, 12, 25, 0.9) 0%, rgba(10, 20, 40, 0.95) 100%),
+    url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='rgba(0,150,255,0.1)' fill-rule='evenodd'/%3E%3C/svg%3E");
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply font-sans antialiased bg-background text-foreground;
+    background-image: 
+      radial-gradient(circle at 10% 90%, rgba(0, 120, 255, 0.05), transparent 20%),
+      radial-gradient(circle at 90% 10%, rgba(0, 255, 200, 0.03), transparent 25%);
+    position: relative;
+  }
+
+  body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, 
+      rgba(0, 230, 255, 0), 
+      rgba(0, 230, 255, 0.5) 20%, 
+      rgba(0, 230, 255, 0.7) 50%,
+      rgba(0, 230, 255, 0.5) 80%,
+      rgba(0, 230, 255, 0));
+    z-index: 1000;
+  }
+}
+
+/* Futuristische Komponenten basierend auf dem Raumschiff-Cockpit */
+.futuristic-panel {
+  @apply rounded-md shadow-lg relative overflow-hidden;
+  background: linear-gradient(135deg, rgba(10, 15, 25, 0.9), rgba(15, 20, 30, 0.95));
+  border: 1px solid rgba(0, 150, 255, 0.4);
+  box-shadow: 0 4px 20px rgba(0, 190, 255, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+/* Admin-Dashboard-Elemente */
+.admin-nav-panel {
+  @apply border border-[#00669c]/40 rounded-md;
+  background: linear-gradient(135deg, rgba(10, 15, 25, 0.9), rgba(15, 20, 30, 0.95));
+}
+
+.futuristic-panel::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(0, 210, 255, 0.8), transparent);
+}
+
+.futuristic-panel::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 10%;
+  right: 10%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(0, 210, 255, 0.3), transparent);
+}
+
+.futuristic-card {
+  @apply rounded-sm relative overflow-hidden;
+  background: linear-gradient(135deg, rgba(8, 15, 25, 0.8), rgba(10, 20, 30, 0.9));
+  border: 1px solid rgba(0, 150, 255, 0.3);
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.4), inset 0 0 0 1px rgba(0, 150, 255, 0.1);
+  backdrop-filter: blur(10px);
+}
+
+.futuristic-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, rgba(0, 210, 255, 0.6), transparent);
+}
+
+.futuristic-card-inner {
+  position: relative;
+  z-index: 1;
+  height: 100%;
+}
+
+/* Hexagonale Form-Elemente */
+.hexagon-shape {
+  clip-path: polygon(10% 0%, 90% 0%, 100% 50%, 90% 100%, 10% 100%, 0% 50%);
+  background: linear-gradient(135deg, rgba(0, 140, 255, 0.2), rgba(0, 200, 255, 0.1));
+  border: 1px solid rgba(0, 200, 255, 0.3);
+}
+
+.futuristic-btn {
+  @apply relative overflow-hidden transition-all duration-200;
+  background: linear-gradient(90deg, rgb(0, 148, 198), rgb(0, 120, 180));
+  border: 1px solid rgba(0, 210, 255, 0.5);
+  box-shadow: 0 0 15px rgba(0, 210, 255, 0.2), inset 0 0 2px rgba(255, 255, 255, 0.3);
+  clip-path: polygon(5% 0%, 95% 0%, 100% 25%, 100% 75%, 95% 100%, 5% 100%, 0% 75%, 0% 25%);
+}
+
+.futuristic-btn::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, 
+    rgba(255, 255, 255, 0), 
+    rgba(255, 255, 255, 0.2), 
+    rgba(255, 255, 255, 0));
+  transform: skewX(-25deg);
+  transition: transform 0.5s;
+}
+
+.futuristic-btn:hover::after {
+  transform: skewX(-25deg) translateX(200%);
+}
+
+/* Leuchtende Elemente */
+.glow-border {
+  box-shadow: 0 0 10px rgba(0, 210, 255, 0.5), inset 0 0 5px rgba(0, 210, 255, 0.2);
+  border: 1px solid rgba(0, 210, 255, 0.6);
+}
+
+.cockpit-border {
+  position: relative;
+  border: 2px solid transparent;
+  border-image: linear-gradient(90deg, 
+    rgba(0, 210, 255, 0), 
+    rgba(0, 210, 255, 0.6) 50%, 
+    rgba(0, 210, 255, 0)
+  );
+  border-image-slice: 1;
+}
+
+/* Raumschiff-Tabellen und Dashboard-Elemente */
+.space-table {
+  @apply w-full border-collapse;
+}
+
+.space-table thead {
+  @apply bg-[#081018];
+}
+
+.space-table th {
+  @apply px-6 py-3 text-left text-xs font-medium text-[#00d2ff] uppercase tracking-wider;
+}
+
+.space-table th:last-child {
+  @apply text-right;
+}
+
+.space-table tbody {
+  @apply divide-y divide-[#00669c]/20;
+}
+
+.space-table tbody tr {
+  @apply hover:bg-[#081018]/50 transition-colors duration-150;
+}
+
+.space-table td {
+  @apply px-6 py-4 whitespace-nowrap text-sm text-[#89c4d9];
+}
+
+.space-table td:first-child {
+  @apply font-medium text-[#c4f6ff];
+}
+
+.space-table td:last-child {
+  @apply text-right;
+}
+
+.space-dialog-content {
+  @apply bg-[#081018] border-[#00669c] text-[#c4f6ff] p-6 relative;
+  box-shadow: 0 0 20px rgba(0, 150, 255, 0.15);
+}
+
+.space-dialog-content::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, rgba(0, 210, 255, 0.8), transparent);
+}
+
+.space-dialog-content::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, rgba(0, 210, 255, 0.5), transparent);
+}
+
+.space-field {
+  @apply bg-[#0c1a2e] border border-[#00669c] p-4 rounded-sm;
+}
+
+.space-field-label {
+  @apply text-sm font-medium text-[#00d2ff] mb-1;
+}
+
+.space-field-value {
+  @apply text-[#c4f6ff];
+}
+
+.space-tabs {
+  @apply bg-[#081018] border border-[#00669c] p-1 glow-border;
+}
+
+.space-tab {
+  @apply text-[#89c4d9];
+}
+.space-tab[data-state="active"] {
+  @apply text-[#00d2ff] bg-[#0c1a2e] glow-border;
+}
+
+.space-select {
+  @apply bg-[#081018] border-[#00669c] text-[#c4f6ff] w-full;
+}
+
+.space-select-item {
+  @apply focus:bg-[#0c1a2e] focus:text-[#00d2ff];
+}
+
+/* Raumschiff-Interface Elemente */
+.interface-scanline {
+  position: relative;
+  overflow: hidden;
+}
+
+.interface-scanline::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background-color: rgba(0, 230, 255, 0.2);
+  animation: scanline 3s linear infinite;
+  pointer-events: none;
+}
+
+@keyframes scanline {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(1000%);
+  }
+}
+
+/* Leuchteffekte für Hover-Zustände */
+.hover-glow:hover {
+  box-shadow: 0 0 15px rgba(0, 200, 255, 0.3);
+  border-color: rgba(0, 200, 255, 0.5);
+}
+
+/* Pulsierende Elemente */
+.pulse-element {
+  animation: pulse 2s infinite ease-in-out;
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(0, 200, 255, 0.4);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(0, 200, 255, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(0, 200, 255, 0);
+  }
+}
